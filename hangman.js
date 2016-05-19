@@ -6,6 +6,7 @@ addEventListener('load',function(){
       var initials = document.getElementById('initials');
 var wordBox = document.getElementById('wordbox');
   var message = document.getElementById("message");
+  var guessedLetterBox = document.getElementById("guessedLetterBox");
 var time = 60000; //1 min
 var gameState = 0;
 //0 - waiting to play, 1 - in game, 2 - win, 3 - lose 4 - prompt
@@ -96,9 +97,14 @@ addEventListener('keyup',function(e){
     if(gameState === 1 && (e.keyCode < 91 && e.keyCode > 64)){
       console.log("playing!");
       //check if letter has already been guessed
-      guessedLetters.push(characterPressed);
+      if(guessedLetters.indexOf(characterPressed) === -1){
+        guessedLetters.push(characterPressed);
 
-      checkLetters(characterPressed);
+        checkLetters(characterPressed);
+      }else{
+        message.innerHTML = "That letter was already guessed, try again stupid."
+      }
+
     }
 
   if(gameState === 0 && characterPressed === 'S'){
@@ -158,6 +164,8 @@ var displayBlanks = function(){
 
 //check if letters are in the word
 var checkLetters = function(characterPressed){
+  //put the guessed letter on the screeen
+  guessedLetterBox.innerHTML += " " + characterPressed + " ";
   //send index to place letter thing foreach time the letter is in the thing
   console.log("checking letters now......");
   console.log("NUMBER OF MISSES = " + failNumber);
@@ -219,3 +227,7 @@ var promptPlayAgain = function(){
   message.innerHTML += "Wanna play again? (y/n)";
 
 };
+
+
+
+//canvas stuff
