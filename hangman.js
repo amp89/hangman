@@ -63,6 +63,7 @@ addEventListener('keyup',function(e){
     console.log(characterPressed);
 
     if(gameState === 4 && characterPressed === "Y"){
+      gameState = 0;
       setupGame();
     }
 
@@ -116,12 +117,15 @@ var setupGame = function(){
   initials.innerHTML = "";
   wordBox.innerHTML = "";
   message.innerHTML = "";
+    correctlyGuessedLetters = [];
+    secretWordLetters = []
+    secretWord = "";
   time = 60000; //1 min
   gameState = 0;
   //0 - waiting to play, 1 - in game, 2 - win, 3 - lose
   numberOfTurnsTaken = 0;
   score = 0;
-  correctlyGuessedLetters = [];
+
   //score is time left when won
   failNumber = -1; //i messed up somewhere so its gettign set to one when ethe player restarts
 
@@ -136,6 +140,7 @@ var setupGame = function(){
 //display blank spaces based on number of letters in the word
 var displayBlanks = function(){
   var blankCount = getWord().length;
+
   console.log("BLANKS TO WRITE: " + blankCount);
   for(var i = 0; i < blankCount; i++){
 
