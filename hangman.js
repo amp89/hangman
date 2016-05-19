@@ -4,9 +4,10 @@ addEventListener('load',function(){
 
 //variables
 var wordBox = document.getElementById('wordbox');
+  var message = document.getElementById("message");
 var time = 60000; //1 min
 var gameState = 0;
-//0 - waiting to play, 1 - in game, 2 - win, 3 - lose
+//0 - waiting to play, 1 - in game, 2 - win, 3 - lose 4 - prompt
 var numberOfLettersInWord = 0;
 var numberOfTurnsTaken = 0;
 var score = 0;
@@ -44,7 +45,10 @@ var getHighScores = function(){
 
 //submit score to database
 var submitScore = function(){
-  //
+  console.log(time*secretWord.length);
+  console.log(document.getElementById('initials').innerHTML);
+  gameState = 4;
+
 };
 
 //key listener
@@ -57,6 +61,34 @@ addEventListener('keyup',function(e){
     };
     console.log(characterPressed);
 
+    if(gameState === 4 && characterPressed === "Y"){
+      setupGame();
+    }
+
+    if(gameState === 4 && characterPressed === "N"){
+      message.innerHTML = "FINE";
+    }
+
+    if(gameState === 3 && e.keyCode === 13){
+      promptPlayAgain();
+    }
+
+    //submit nitial
+    if(gameState === 2 && e.keyCode === 13){
+      submitScore();
+      promptPlayAgain();
+
+    }
+    //enter initials
+    if(gameState === 2 && (e.keyCode < 91 && e.keyCode > 64)){
+      var initials = document.getElementById('initials');
+      if(initials.innerHTML.length < 3) //why does this have to be 3!?!?
+      {
+      initials.innerHTML += characterPressed;
+      }
+
+
+    }
 
     //this needs to be above the start or it will automatically guess s
     if(gameState === 1 && (e.keyCode < 91 && e.keyCode > 64)){
@@ -80,6 +112,19 @@ addEventListener('keyup',function(e){
 });
 
 var setupGame = function(){
+  initials.innerHTML = "";
+  wordBox.innerHTML = "";
+  message.innerHTML = "";
+  time = 60000; //1 min
+  gameState = 0;
+  //0 - waiting to play, 1 - in game, 2 - win, 3 - lose
+  numberOfTurnsTaken = 0;
+  score = 0;
+  //score is time left when won
+  failNumber = 0;
+
+
+
   displayBlanks();
   //switch gameState to in game;
   gameState = 1;
@@ -121,6 +166,8 @@ var checkLetters = function(characterPressed){
   if(correctWordCountForTurn < 1){
     failNumber++;
     console.log("FAIL NUMBER IS NOW: " + failNumber);
+    placePart();
+    //test
     for(var i = 0; i < correctlyGuessedLetters.length; i++){
       console.log(correctlyGuessedLetters[i]);
     };
@@ -137,11 +184,15 @@ var checkLetters = function(characterPressed){
 };
 //win
 var win = function(){
+  message.innerHTML = "WOW YOU WIN";
   console.log("win function, omg you won ur so smart");
+  message.innerHTML = " enter your initialz ";
+  gameState = 2;
 };
 //lose
 var die = function(){
-  console.log("lose function, ur so stupid omg");
+  message.innerHTML = "WOW YOU SUCK press enter to continue";
+  gameState = 3;
 };
 //replace a blank with a letter
 var placeLetter = function(index,char){
@@ -152,6 +203,13 @@ var placeLetter = function(index,char){
   }
 };
 //place a part on the hangman guy
-var placePart = function(){};
+var placePart = function(){
+  var parts = document.getElementById('parts');
+  parts.innerHTML = failNumber;
+};
 //play again
-var promptPlayAgain = function(){};
+var promptPlayAgain = function(){
+  gameState = 4;
+  message.innerHTML += "Wanna play again? (y/n)";
+
+};
