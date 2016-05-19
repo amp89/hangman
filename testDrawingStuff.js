@@ -8,9 +8,46 @@ addEventListener('load',function(){
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+var drawOnCanvas = function(failNumber){
+  switch (failNumber) {
+    case 1:drawHead:break;
+    case 2:drawHead:break;
+    case 3:drawHead:break;
+    case 4:drawHead:break;
+    case 5:drawHead:break;
+    case 6:drawHead:break;
+    case 7:drawHead:break;
+    case 8:drawHead:break;
+    case 9:drawHead:break;
+    case 10:drawHead:break;
+    case 11:drawHead:break;
+    case 12:drawHead:break;
+    case 13:drawHead:break;
+
+    default:
+
+  }
+}
 
 var setCanvasAndContext = function(){
   ctx.clearRect(0,0,400,400);
+  drawSun();
+  drawTree(20,175);
+  drawTree(40,250);
+  drawTree(-10,320);
+  drawTree(70,300);
+  drawTree(240,175);
+  drawTree(250,300);
+  drawTree(120,350);
+  drawTree(160,325);
+  drawTree(315,300);
+
+
+
+
+
+  drawNoose();
+
 };
 
 var drawSun = function(){
@@ -180,22 +217,6 @@ var drawMouth = function(){
 
 var drawAllTestDeleteThis = function(){
   setCanvasAndContext();
-  drawSun();
-  drawTree(20,175);
-  drawTree(40,250);
-  drawTree(-10,320);
-  drawTree(70,300);
-  drawTree(240,175);
-  drawTree(250,300);
-  drawTree(120,350);
-  drawTree(160,325);
-  drawTree(315,300);
-
-
-
-
-
-  drawNoose();
 
   drawHead();
   drawBody();

@@ -1,7 +1,13 @@
 addEventListener('load',function(){
   console.log("hangman.js has been loaded.");
+  setCanvasAndContext();
 });
 
+var clock = document.getElementById('clock');
+var score = document.getElementById('score');
+score.innerHTML = "..NO SCORE YET..";
+var intervalID = 0;
+  var parts = document.getElementById('parts');
 //variables
       var initials = document.getElementById('initials');
 var wordBox = document.getElementById('wordbox');
@@ -26,11 +32,19 @@ var guessedLetters = [];
 var highScores = [];
 
 
-//timer
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+
 var runTimer = function(){
   //if timer > 60s, die
+  intervalID = setInterval(
+    function(){
 
-};
+      clock.innerHTML = time/1000;
+      time -= 1000;
+    },1000
+  )};
 
 //get a word from the database
 var getWord = function(){
@@ -45,10 +59,15 @@ var getHighScores = function(){
   //5? 10?
 };
 
+
+var setScore = function(){
+    score = time;
+}
 //submit score to database
 var submitScore = function(){
   console.log(time*secretWord.length);
   console.log(document.getElementById('initials').innerHTML);
+  console.log("SUBMITTED SCORE " + score);
   gameState = 4;
 
 };
@@ -63,13 +82,14 @@ addEventListener('keyup',function(e){
     };
     console.log(characterPressed);
 
-    if(gameState === 4 && characterPressed === "Y"){
+    if(gameState === 4 && e.keyCode === 13){
       gameState = 0;
       setupGame();
     }
 
-    if(gameState === 4 && characterPressed === "N"){
+    if(gameState === 4 && e.keyCode === 27){
       message.innerHTML = "FINE";
+      exitProgram();
     }
 
     if(gameState === 3 && e.keyCode === 13){
@@ -102,7 +122,7 @@ addEventListener('keyup',function(e){
 
         checkLetters(characterPressed);
       }else{
-        message.innerHTML = "That letter was already guessed, try again stupid."
+        message.innerHTML = "That letter was already guessed, try again stupid.";
       }
 
     }
@@ -120,10 +140,12 @@ addEventListener('keyup',function(e){
 });
 
 var setupGame = function(){
+  parts.innerHTML = "NUMBER OF FAILS: 0";
   guessedLetters = [];
   initials.innerHTML = "";
   wordBox.innerHTML = "";
   message.innerHTML = "";
+  console.log("failnumber IST " + failNumber);
     correctlyGuessedLetters = [];
     secretWordLetters = []
     secretWord = "";
@@ -132,15 +154,18 @@ var setupGame = function(){
   //0 - waiting to play, 1 - in game, 2 - win, 3 - lose
   numberOfTurnsTaken = 0;
   score = 0;
-
+  console.log("failnumber IST " + failNumber);
+  setCanvasAndContext();
   //score is time left when won
-  failNumber = -1; //i messed up somewhere so its gettign set to one when ethe player restarts
+   //i messed up somewhere so its gettign set to one when ethe player restarts
 
-
+  runTimer();
   displayBlanks();
   //switch gameState to in game;
   gameState = 1;
-  console.log("GAMESTATE CHANGED TO " + gameState);
+  failNumber = 0;
+  console.log("gstate ist " + gameState);
+  console.log("failnumber IST " + failNumber);
 
 }
 
@@ -179,7 +204,8 @@ var checkLetters = function(characterPressed){
     }
   };
   if(correctWordCountForTurn < 1){
-    failNumber++;
+    failNumber++; //TODO on restart, its incrementing here
+    drawOnCanvas(failNumber);
     console.log("FAIL NUMBER IS NOW: " + failNumber);
     placePart();
     //test
@@ -191,17 +217,31 @@ var checkLetters = function(characterPressed){
   placeLetter();
   //if correctly guessed letters contain no " _ "
   if((correctlyGuessedLetters.indexOf(" _ ") === -1) && (failNumber < maxFails)){
+    //stop timer
+    stopTimer();
     win();
   }else if(failNumber >= maxFails){
+    //stop timer
+    stopTimer();
     die();
   }
 
 };
+var stopTimer = function(){
+    clearInterval(intervalID);
+
+}
+
 //win
 var win = function(){
   message.innerHTML = "WOW YOU WIN";
   console.log("win function, omg you won ur so smart");
   message.innerHTML = " enter your initialz ";
+  setScore();
+  console.log("SCORE:::: " + score);
+  var scoreout = "score: " + score;
+  var scoreDiv = document.getElementById('score');
+  scoreDiv.innerHTML = scoreout;
   gameState = 2;
 };
 //lose
@@ -219,17 +259,263 @@ var placeLetter = function(index,char){
 };
 //place a part on the hangman guy
 var placePart = function(){
-  var parts = document.getElementById('parts');
-  parts.innerHTML = "FAIL NUMBERS: " + failNumber;
+
+  parts.innerHTML = "NUMBER OF FAILS: " + failNumber;
 };
 //play again
 var promptPlayAgain = function(){
   gameState = 4;
-  message.innerHTML += "Wanna play again? (y/n)";
+  message.innerHTML += "Wanna play again? Enter for yes, Escape for no.";
 
 };
 
 
 
 //canvas stuff
-//need to call these methods in the other thingy
+
+var setCanvasAndContext = function(){
+  ctx.clearRect(0,0,400,400);
+  drawSun();
+  drawTree(20,175);
+  drawTree(40,250);
+  drawTree(-10,320);
+  drawTree(70,300);
+  drawTree(240,175);
+  drawTree(250,300);
+  drawTree(120,350);
+  drawTree(160,325);
+  drawTree(315,300);
+  drawNoose();
+};
+
+var drawSun = function(){
+  ctx.beginPath();
+  var x = 50;
+  var y = 50;
+  ctx.arc(x,y,40,0,2*Math.PI);
+  ctx.fillStyle = 'yellow';
+  ctx.strokeStyle = 'black';
+  ctx.fill();
+  // ctx.stroke();
+  //make sure it goes back to black
+  ctx.fillStyle = 'black';
+};
+
+var drawTree = function(x,y){
+  console.log("drawing tree")
+  ctx.beginPath();
+  var x = x;
+  ctx.moveTo(x,375);
+  ctx.lineTo(x+(y/6),(375-y));
+  ctx.lineTo(x+y/3,375);
+
+
+  ctx.fillStyle = "rgb(150,225,150)";
+  ctx.strokeStyle = "rgb(0,50,0)";
+  // ctx.fill()
+  // ctx.stroke();
+  ctx.closePath();
+  ctx.stroke();
+  ctx.fill();
+  ctx.fillStyle = 'black';
+  ctx.strokeStyle = 'black';
+}
+
+var drawNoose = function(){
+  ctx.beginPath()
+  ctx.moveTo(200,75);
+  ctx.lineTo(200,25);
+  ctx.lineTo(350,25);
+  ctx.lineTo(350,375);
+  ctx.stroke();
+  ctx.moveTo(0,375);
+  ctx.lineTo(400,375);
+  ctx.stroke();
+}
+
+//1
+var drawHead = function(){
+  console.log('drawing head');
+ctx.beginPath();
+ctx.fillStyle = 'white';
+ctx.strokeStyle = 'black';
+// ctx.fillStyle = 'black';
+ctx.arc(200,115,40,0,2*Math.PI)
+ctx.stroke();
+ctx.fill();
+};
+// ctx.fillStyle = 'black';
+
+// ctx.fill();
+//2
+var drawBody = function(){
+  ctx.beginPath();
+  ctx.moveTo(200,155);
+  ctx.lineTo(200,260);
+  ctx.stroke();
+};
+//3
+var drawLeftArm = function(){
+  ctx.beginPath();
+  ctx.moveTo(200,200);
+  ctx.lineTo(130,160);
+  ctx.stroke();
+};
+//4
+var drawRightArm = function(){
+  ctx.beginPath();
+  ctx.moveTo(200,200);
+  ctx.lineTo(270,160);
+  ctx.stroke();
+};
+//5
+var drawLeftLeg = function(){
+  console.log('left leg');
+  ctx.beginPath();
+  ctx.moveTo(200,260);
+  ctx.lineTo(150,330);
+  ctx.stroke();
+};
+//6
+var drawRightLeg = function(){
+  console.log('left leg');
+  ctx.beginPath();
+  ctx.moveTo(200,260);
+  ctx.lineTo(250,330);
+  ctx.stroke();
+};
+//7
+var drawRightHand = function(){
+  ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
+  var x = (270 + 7.07106781187);
+  var y = (160 - 7.07106781187);
+  ctx.arc(x,y,10,0,2*Math.PI);
+  ctx.stroke();
+  ctx.fill();
+};
+//8
+var drawLeftHand = function(){
+  ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
+  var x = (130 - 7.07106781187);
+  var y = (160 - 7.07106781187);
+  ctx.arc(x,y,10,0,2*Math.PI);
+  ctx.stroke();
+  ctx.fill();
+};
+//9
+var drawRightFoot = function(){
+  ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
+  var x = (250 + 7.07106781187);
+  var y = (330 + 7.07106781187);
+  ctx.arc(x,y,10,0,2*Math.PI);
+  ctx.stroke();
+  ctx.fill();
+};
+//10
+var drawLeftFoot = function(){
+  ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
+  var x = (150 - 7.07106781187);
+  var y = (330 + 7.07106781187);
+  ctx.arc(x,y,10,0,2*Math.PI);
+  ctx.stroke();
+  ctx.fill();
+};
+//11
+var drawLeftEye = function(){
+  ctx.beginPath();
+  var x = (190);
+  var y = (105);
+  ctx.arc(x,y,8,0,2*Math.PI);
+  ctx.stroke();
+};
+//12
+var drawRightEye = function(){
+  ctx.beginPath();
+  var x = (210);
+  var y = (105);
+  ctx.arc(x,y,8,0,2*Math.PI);
+  ctx.stroke();
+};
+//13
+var drawMouth = function(){
+  ctx.beginPath();
+  var x = (200);
+  var y = (130);
+  ctx.arc(x,y,8,0,Math.PI,true);
+  ctx.stroke();
+};
+
+var exitProgram = function(){
+  ctx.clearRect(0,0,400,400);
+
+  ctx.fillStyle = "white";
+  ctx.strokeStyle = "black";
+  ctx.beginPath();
+  ctx.arc(75,75,30,0,2*Math.PI);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(325,75,30,0,2*Math.PI);
+  ctx.stroke();
+
+    ctx.beginPath();
+
+    ctx.arc(200,300,150,0,Math.PI,true);
+    ctx.stroke();
+    ctx.fillStyle = "black";
+    ctx.font = "40px Arial";
+    ctx.fillText("GOODBYE",90,350);
+
+};
+
+var drawAllTestDeleteThis = function(){
+  setCanvasAndContext();
+
+
+  drawHead();
+  drawBody();
+  drawLeftArm();
+  drawRightArm();
+  drawLeftLeg();
+  drawRightLeg();
+  drawRightHand();
+  drawLeftHand();
+  drawRightFoot();
+  drawLeftFoot();
+  drawLeftEye();
+  drawRightEye();
+  drawMouth();
+
+
+
+
+};
+
+//draw switch
+var drawOnCanvas = function(failNumber){
+  switch (failNumber) {
+    case 1:drawHead();break;
+    case 2:drawBody();break;
+    case 3:drawLeftArm();break;
+    case 4:drawRightArm();break;
+    case 5:drawLeftLeg();break;
+    case 6:drawRightLeg();break;
+    case 7:drawLeftHand();break;
+    case 8:drawRightHand();break;
+    case 9:drawLeftFoot();break;
+    case 10:drawRightFoot();break;
+    case 11:drawLeftEye();break;
+    case 12:drawRightEye();break;
+    case 13:drawMouth();break;
+
+    default:
+
+  }
+}
