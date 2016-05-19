@@ -10,13 +10,41 @@ var ctx = canvas.getContext("2d");
 
 
 var setCanvasAndContext = function(){
-  //clear
-  //draw noose
   ctx.clearRect(0,0,400,400);
-  ctx.fillStyle = "grey";
-  ctx.strokeRect(20,20,20,20);
-
 };
+
+var drawSun = function(){
+  ctx.beginPath();
+  var x = 50;
+  var y = 50;
+  ctx.arc(x,y,40,0,2*Math.PI);
+  ctx.fillStyle = 'yellow';
+  ctx.strokeStyle = 'black';
+  ctx.fill();
+  // ctx.stroke();
+  //make sure it goes back to black
+  ctx.fillStyle = 'black';
+};
+
+var drawTree = function(x,y){
+  console.log("drawing tree")
+  ctx.beginPath();
+  var x = x;
+  ctx.moveTo(x,375);
+  ctx.lineTo(x+(y/6),(375-y));
+  ctx.lineTo(x+y/3,375);
+
+
+  ctx.fillStyle = "rgb(150,225,150)";
+  ctx.strokeStyle = "rgb(0,50,0)";
+  // ctx.fill()
+  // ctx.stroke();
+  ctx.closePath();
+  ctx.stroke();
+  ctx.fill();
+  ctx.fillStyle = 'black';
+  ctx.strokeStyle = 'black';
+}
 
 var drawNoose = function(){
   ctx.beginPath()
@@ -34,10 +62,12 @@ var drawNoose = function(){
 var drawHead = function(){
   console.log('drawing head');
 ctx.beginPath();
+ctx.fillStyle = 'white';
 ctx.strokeStyle = 'black';
 // ctx.fillStyle = 'black';
 ctx.arc(200,115,40,0,2*Math.PI)
 ctx.stroke();
+ctx.fill();
 };
 // ctx.fillStyle = 'black';
 
@@ -82,34 +112,46 @@ var drawRightLeg = function(){
 //7
 var drawRightHand = function(){
   ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
   var x = (270 + 7.07106781187);
   var y = (160 - 7.07106781187);
   ctx.arc(x,y,10,0,2*Math.PI);
   ctx.stroke();
+  ctx.fill();
 };
 //8
 var drawLeftHand = function(){
   ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
   var x = (130 - 7.07106781187);
   var y = (160 - 7.07106781187);
   ctx.arc(x,y,10,0,2*Math.PI);
   ctx.stroke();
+  ctx.fill();
 };
 //9
 var drawRightFoot = function(){
   ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
   var x = (250 + 7.07106781187);
   var y = (330 + 7.07106781187);
   ctx.arc(x,y,10,0,2*Math.PI);
   ctx.stroke();
+  ctx.fill();
 };
 //10
 var drawLeftFoot = function(){
   ctx.beginPath();
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
   var x = (150 - 7.07106781187);
   var y = (330 + 7.07106781187);
   ctx.arc(x,y,10,0,2*Math.PI);
   ctx.stroke();
+  ctx.fill();
 };
 //11
 var drawLeftEye = function(){
@@ -138,7 +180,23 @@ var drawMouth = function(){
 
 var drawAllTestDeleteThis = function(){
   setCanvasAndContext();
+  drawSun();
+  drawTree(20,175);
+  drawTree(40,250);
+  drawTree(-10,320);
+  drawTree(70,300);
+  drawTree(240,175);
+  drawTree(250,300);
+  drawTree(120,350);
+  drawTree(160,325);
+  drawTree(315,300);
+
+
+
+
+
   drawNoose();
+
   drawHead();
   drawBody();
   drawLeftArm();
