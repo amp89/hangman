@@ -120,6 +120,7 @@ addEventListener('keyup',function(e){
 });
 
 var setupGame = function(){
+  guessedLetters = [];
   initials.innerHTML = "";
   wordBox.innerHTML = "";
   message.innerHTML = "";
@@ -231,3 +232,4 @@ var promptPlayAgain = function(){
 
 
 //canvas stuff
+//need to call these methods in the other thingy
