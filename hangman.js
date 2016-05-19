@@ -3,6 +3,7 @@ addEventListener('load',function(){
 });
 
 //variables
+      var initials = document.getElementById('initials');
 var wordBox = document.getElementById('wordbox');
   var message = document.getElementById("message");
 var time = 60000; //1 min
@@ -81,7 +82,7 @@ addEventListener('keyup',function(e){
     }
     //enter initials
     if(gameState === 2 && (e.keyCode < 91 && e.keyCode > 64)){
-      var initials = document.getElementById('initials');
+
       if(initials.innerHTML.length < 3) //why does this have to be 3!?!?
       {
       initials.innerHTML += characterPressed;
@@ -120,9 +121,9 @@ var setupGame = function(){
   //0 - waiting to play, 1 - in game, 2 - win, 3 - lose
   numberOfTurnsTaken = 0;
   score = 0;
+  correctlyGuessedLetters = [];
   //score is time left when won
-  failNumber = 0;
-
+  failNumber = -1; //i messed up somewhere so its gettign set to one when ethe player restarts
 
 
   displayBlanks();
@@ -205,7 +206,7 @@ var placeLetter = function(index,char){
 //place a part on the hangman guy
 var placePart = function(){
   var parts = document.getElementById('parts');
-  parts.innerHTML = failNumber;
+  parts.innerHTML = "FAIL NUMBERS: " + failNumber;
 };
 //play again
 var promptPlayAgain = function(){
