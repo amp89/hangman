@@ -2970,3 +2970,8 @@
 0:0:0:0:0:0:0:1 - - [20/May/2016:16:02:47 -0600] "GET /HangmanSpring/js/hangman.js HTTP/1.1" 200 14650
 0:0:0:0:0:0:0:1 - - [20/May/2016:16:02:47 -0600] "GET /HangmanSpring/rest/topscores HTTP/1.1" 200 209
 0:0:0:0:0:0:0:1 - - [20/May/2016:16:02:51 -0600] "POST /HangmanSpring/rest/getword/1 HTTP/1.1" 200 50
+0:0:0:0:0:0:0:1 - - [20/May/2016:16:03:15 -0600] "GET /HangmanSpring/ HTTP/1.1" 200 748
+0:0:0:0:0:0:0:1 - - [20/May/2016:16:03:15 -0600] "GET /HangmanSpring/css/stylesheet.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2016:16:03:15 -0600] "GET /HangmanSpring/css/reset.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2016:16:03:15 -0600] "GET /HangmanSpring/js/hangman.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2016:16:03:15 -0600] "GET /HangmanSpring/rest/topscores HTTP/1.1" 200 209
