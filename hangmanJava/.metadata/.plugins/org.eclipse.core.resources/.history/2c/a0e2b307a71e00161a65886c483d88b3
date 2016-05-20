@@ -1,0 +1,35 @@
+package dataload;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import entities.Word;
+
+public class LoadWords {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hangman");
+		EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		
+		String wString = "wtf";
+		
+		int wLength = wString.length();
+		
+		Word w = new Word(null,wString,wLength);
+		
+		em.persist(w);
+		
+		
+		em.getTransaction().commit();
+		
+		
+		em.close();
+		emf.close();
+
+	}
+
+}

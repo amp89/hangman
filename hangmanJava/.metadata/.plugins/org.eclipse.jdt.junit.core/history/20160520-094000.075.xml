@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HangmanDBTest" project="HangmanJPA" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="testing.HangmanDBTest" time="2.348">
+    <testcase name="scoreInitials" classname="testing.HangmanDBTest" time="2.192"/>
+    <testcase name="scoreScore" classname="testing.HangmanDBTest" time="0.076"/>
+    <testcase name="scoreId" classname="testing.HangmanDBTest" time="0.08"/>
+  </testsuite>
+</testrun>

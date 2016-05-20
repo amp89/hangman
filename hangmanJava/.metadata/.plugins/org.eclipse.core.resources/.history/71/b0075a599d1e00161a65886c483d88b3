@@ -1,0 +1,61 @@
+package testing;
+
+
+import static org.junit.Assert.assertEquals;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import entities.Word;
+
+public class HangmanDBTest {
+EntityManagerFactory emf;
+EntityManager em;
+	
+	@Before
+	public void setUp(){
+		emf = Persistence.createEntityManagerFactory("hangman");
+		em = emf.createEntityManager(); 
+		
+	}
+	
+	@Test
+	public void wordId(){
+		Integer i = 1;
+		assertEquals(i,em.find(Word.class, 1).getId());
+	}
+	
+	@Test
+	public void wordName(){
+		assertEquals("WORD",em.find(Word.class, 1).getName().toUpperCase());
+		
+	}
+	
+	@Test
+	public void wordLength(){
+		Integer i = 4;
+		assertEquals(i,Integer.parseInt(em.find(Word.class, 1).getName().length()));
+	}
+	
+	@Test
+	public void scoreId(){}
+	
+	@Test
+	public void scoreInitials(){}
+	
+	@Test
+	public void scoreScore(){}
+	
+	
+	@After
+	public void tearDown(){
+		em.close();
+		emf.close();
+	}
+
+}

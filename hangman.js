@@ -44,7 +44,7 @@ var runTimer = function(){
       clock.innerHTML = time/1000;
       time -= 1000;
       if(time <= 0){
-        gameState = 4;
+        die();
       };
     },1000
   )};

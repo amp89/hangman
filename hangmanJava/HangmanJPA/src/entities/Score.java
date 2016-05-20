@@ -2,12 +2,18 @@ package entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="scores")
 public class Score {
 
 	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name="initials")
@@ -20,6 +26,12 @@ public class Score {
 		super();
 	}
 
+	public Score(String initials, Integer score) {
+		super();
+		this.initials = initials;
+		this.score = score;
+	}
+	
 	public Score(Integer id, String initials, Integer score) {
 		super();
 		this.id = id;

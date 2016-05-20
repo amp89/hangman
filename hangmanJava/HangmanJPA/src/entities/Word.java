@@ -2,12 +2,18 @@ package entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="words")
 public class Word {
 
 	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name="name")
@@ -20,6 +26,13 @@ public class Word {
 		super();
 	}
 
+	public Word(String name, Integer length) {
+		super();
+		this.name = name;
+		this.length = length;
+	}
+
+	
 	public Word(Integer id, String name, Integer length) {
 		super();
 		this.id = id;

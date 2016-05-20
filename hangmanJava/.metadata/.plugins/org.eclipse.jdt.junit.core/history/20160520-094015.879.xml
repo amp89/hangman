@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HangmanDBTest" project="HangmanJPA" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="testing.HangmanDBTest" time="2.792">
+    <testcase name="wordId" classname="testing.HangmanDBTest" time="2.264"/>
+    <testcase name="wordName" classname="testing.HangmanDBTest" time="0.132"/>
+    <testcase name="scoreInitials" classname="testing.HangmanDBTest" time="0.132"/>
+    <testcase name="wordLength" classname="testing.HangmanDBTest" time="0.089"/>
+    <testcase name="scoreScore" classname="testing.HangmanDBTest" time="0.096"/>
+    <testcase name="scoreId" classname="testing.HangmanDBTest" time="0.079"/>
+  </testsuite>
+</testrun>

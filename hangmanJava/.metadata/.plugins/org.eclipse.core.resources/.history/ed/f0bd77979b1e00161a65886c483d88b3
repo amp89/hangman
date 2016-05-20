@@ -1,0 +1,19 @@
+package testing;
+
+import static org.junit.Assert.*;
+
+public class Test {
+
+	@Before
+	
+	
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+	
+	@After
+	
+}
