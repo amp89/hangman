@@ -32,16 +32,16 @@ public class HangmanMySQLDAO implements HangmanDAO {
 		case 5: min=37; max=99;break;
 		}
 		
-		
+		System.out.println(min);
+		System.out.println(max);
 		Word w = null;
 		do{
 			int randomId = (int)(Math.random() * wordListLength);
 			w = em.find(Word.class,randomId);
-			
-		}while(w == null && (w.getLength() >= min && w.getLength() <= max));
+			//TODO filter out non letter chars.  db?
+		}while((w.getName().length() < min || w.getName().length() > max));
 		
-		w.setName(w.getName().toUpperCase());
-		
+		System.out.println(w.getName());
 		
 		return w;
 	}
