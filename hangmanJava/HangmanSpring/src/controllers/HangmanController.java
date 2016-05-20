@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import data.HangmanDAO;
@@ -28,9 +29,10 @@ public class HangmanController {
 	
 	
 	@ResponseBody
-	@RequestMapping("submitscore")
+	@RequestMapping(value="submitscore", method = RequestMethod.POST)
 	public void submitScore(@RequestBody Score score){
 		System.out.println("IN CONTROLLER TO SUBMIT SCORE");
+		System.out.println(score);
 		dao.addScore(score);
 		System.out.println("IN CONTROLLER AFTER SUBMIT SCORE");
 	}

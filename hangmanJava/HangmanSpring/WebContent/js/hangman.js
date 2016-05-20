@@ -1,6 +1,7 @@
 addEventListener('load',function(){
   console.log("hangman.js has been loaded.");
   setCanvasAndContext();
+  getHighScores();
 });
 
 var topScores = document.getElementById('topScores');
@@ -97,6 +98,34 @@ var getWord = function(){
 var getHighScores = function(){
   //call to database to return high scores
   //5? 10?
+	var xhr = new XMLHttpRequest();
+
+	xhr.open('GET','../HangmanSpring/rest/topscores');
+	xhr.setRequestHeader('Content-type','application/json');
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4 && xhr.status < 400){
+			//response test stuff
+			console.log(xhr.responseText);
+			console.log(JSON.parse(xhr.responseText));
+			highScores = JSON.parse(xhr.responseText);
+			var ul = document.createElement('ul');
+			ul.innerHTML = "TOP SCORES";
+			
+			for(var i = 0; i < highScores.length; i++){
+				var li = document.createElement('li');
+				li.innerHTML = highScores[i].initials + " " + highScores[i].score;
+				ul.appendChild(li);
+			}
+			
+			topScores.appendChild(ul);
+		}
+	};
+	
+
+	xhr.send();
+	
+	
+	
 };
 
 
@@ -105,9 +134,38 @@ var setScore = function(){
 }
 //submit score to database
 var submitScore = function(){
-  console.log(time*secretWord.length);
-  console.log(document.getElementById('initials').innerHTML);
-  console.log("SUBMITTED SCORE " + score);
+//  console.log(time*secretWord.length);
+//  console.log(document.getElementById('initials').innerHTML);
+//  console.log("SUBMITTED SCORE " + score);
+  
+  var submitInitial = document.getElementById('initials').innerHTML;
+  console.log('submit initial: ' + submitInitial);
+  var submitScore = document.getElementById('score').innerHTML;
+  console.log('submit score: ' + submitScore);
+  var newScore = {
+		  initials:submitInitial,
+		  score:Number(submitScore)
+  		};
+  console.log(newScore);
+  var newScoreJSON = JSON.stringify(newScore);
+  console.log(newScoreJSON);
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.open('POST','../HangmanSpring/rest/submitscore');
+  xhr.setRequestHeader('Content-type','application/json');
+  xhr.onreadystatechange = function(){
+  	if(xhr.readyState === 4 && xhr.status < 400){
+  		//response test stuff
+  		console.log('score submission done');
+  /* 		console.log(xhr2.responseText);
+  		console.log(JSON.parse(xhr2.responseText)); */
+  	}
+  };
+
+  xhr.send(newScoreJSON);
+
+ 
   gameState = 4;
 
 };
@@ -267,9 +325,9 @@ var win = function(){
   message.innerHTML = " enter your initialz ";
   setScore();
   console.log("SCORE:::: " + score);
-  var scoreout = "score: " + score;
+//  var scoreout = "score: " + score;
   var scoreDiv = document.getElementById('score');
-  scoreDiv.innerHTML = scoreout;
+  scoreDiv.innerHTML = score;
   gameState = 2;
 };
 //lose
