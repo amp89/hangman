@@ -35,7 +35,7 @@ public class HangmanMySQLDAO implements HangmanDAO {
 		System.out.println(min);
 		System.out.println(max);
 		Word w = null;
-		while(true){
+		do{
 			int randomId = (int)(Math.random() * wordListLength);
 			w = em.find(Word.class,randomId);
 			//TODO filter out non letter chars.  db?
@@ -44,13 +44,11 @@ public class HangmanMySQLDAO implements HangmanDAO {
 			
 			if(w.getName().length() >= min && w.getName().length() <= max){
 				break;
-			}else{
-				continue;
 			}
 			}
-		};
+		}while(true);
 		
-		System.out.println("WORD RETURED: " + w.getName());
+		System.out.println(w.getName());
 		
 		return w;
 	}

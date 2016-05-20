@@ -64,14 +64,32 @@ var getWord = function(){
   		//response test stuff
   		console.log(xhr.responseText);
   		console.log(JSON.parse(xhr.responseText));
-  		secretWord = JSON.parse(xhr.responseText);
+  		secretWord = JSON.parse(xhr.responseText).name;
+  		
+  	
+  	  var blankCount = secretWord.length;
+
+  	  console.log("BLANKS TO WRITE: " + blankCount);
+  	  for(var i = 0; i < blankCount; i++){
+
+  	    secretWordLetters.push(secretWord[i].toUpperCase());
+  	    correctlyGuessedLetters.push(" _ ");
+  	  };
+  	  //TODO test console printout
+  	  for(var i = 0; i < secretWordLetters.length; i++){
+  	    console.log(secretWordLetters[i]);
+  	  }
+  	  //print BLANKS (all that is in correctlyGuessedLetters is blanks rn)
+  	  placeLetter();
+  		
+  		
   	}
   };
+  
   //TODO comment this out to make it work
-//  secretWord = "test";
   xhr.send();
-
-  console.log("RETURNING SECRET wrd: " + secretWord);
+//   secretWord = "test";	
+  console.log("RETURNING SECRET WORD: " + secretWord);
   return secretWord;
 };
 
@@ -194,20 +212,7 @@ var setupGame = function(){
 
 //display blank spaces based on number of letters in the word
 var displayBlanks = function(){
-  var blankCount = getWord().length;
-
-  console.log("BLANKS TO WRITE: " + blankCount);
-  for(var i = 0; i < blankCount; i++){
-
-    secretWordLetters.push(getWord()[i].toUpperCase());
-    correctlyGuessedLetters.push(" _ ");
-  };
-  //TODO test console printout
-  for(var i = 0; i < secretWordLetters.length; i++){
-    console.log(secretWordLetters[i]);
-  }
-  //print BLANKS (all that is in correctlyGuessedLetters is blanks rn)
-  placeLetter();
+	getWord();
 
 };
 
