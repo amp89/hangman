@@ -330,20 +330,17 @@ var checkLetters = function(characterPressed){
     };
 
   }
- 
   placeLetter();
   //if correctly guessed letters contain no " _ "
-  console.log('about to check stuff');
   if((correctlyGuessedLetters.indexOf(" _ ") === -1) && (failNumber < maxFails)){
     //stop timer
     stopTimer();
     win();
-  };
-  if(failNumber >= maxFails){
+  }else if(failNumber >= maxFails){
     //stop timer
     stopTimer();
     die();
-  };
+  }
 
 };
 var stopTimer = function(){

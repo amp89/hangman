@@ -338,12 +338,12 @@ var checkLetters = function(characterPressed){
     //stop timer
     stopTimer();
     win();
-  };
+  }
   if(failNumber >= maxFails){
     //stop timer
     stopTimer();
     die();
-  };
+  }
 
 };
 var stopTimer = function(){

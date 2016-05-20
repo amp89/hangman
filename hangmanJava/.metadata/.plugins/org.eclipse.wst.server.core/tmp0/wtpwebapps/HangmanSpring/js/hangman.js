@@ -4,10 +4,11 @@ addEventListener('load',function(){
   getHighScores();
 });
 
+var startPrompt = document.getElementById('startPrompt')
 var topScores = document.getElementById('topScores');
 var clock = document.getElementById('clock');
 var score = document.getElementById('score');
-score.innerHTML = "..NO SCORE YET..";
+score.innerHTML = "0";
 var intervalID = 0;
 var parts = document.getElementById('parts');
 //variables
@@ -174,6 +175,10 @@ var submitScore = function(){
 
 //key listener
 //most of game logic will be run from here, because its all key event based (obviously)
+addEventListener('keydown',function(e){
+	e.preventDefault();
+});
+
 addEventListener('keyup',function(e){
   e.preventDefault();
   var characterPressed = "";
@@ -210,9 +215,26 @@ addEventListener('keyup',function(e){
       initials.innerHTML += characterPressed;
       }
 
-
     }
 
+    
+    
+    //delete initials
+    if(gameState === 2 && (e.keyCode == 8)){
+    	
+    	if(initials.innerHTML.length < 3) //why does this have to be 3!?!?
+    	{
+    		
+    	    e.preventDefault();
+    	    var divText = initials.innerHTML;
+    	    divText = divText.slice(0,-1);
+    	    initials.innerHTML = divText;
+    	}
+    	
+    }
+    
+    
+    
     //this needs to be above the start or it will automatically guess s
     if(gameState === 1 && (e.keyCode < 91 && e.keyCode > 64)){
       console.log("playing!");
@@ -240,7 +262,7 @@ addEventListener('keyup',function(e){
 });
 
 var setupGame = function(){
-  parts.innerHTML = "NUMBER OF FAILS: 0";
+//  parts.innerHTML = "NUMBER OF FAILS: 0";
   guessedLetters = [];
   guessedLetterBox.innerHTML = "";
   initials.innerHTML = "";
@@ -259,15 +281,21 @@ var setupGame = function(){
   setCanvasAndContext();
   //score is time left when won
    //i messed up somewhere so its gettign set to one when ethe player restarts
-
+  resetHighScores();
   runTimer();
   displayBlanks();
   //switch gameState to in game;
+  startPrompt.innerHTML = "";
   gameState = 1;
   failNumber = 0;
   console.log("gstate ist " + gameState);
   console.log("failnumber IST " + failNumber);
 
+}
+
+var resetHighScores = function(){
+	topScores.innerHTML = "HIGH SCORES:"
+	getHighScores();
 }
 
 //display blank spaces based on number of letters in the word
@@ -302,17 +330,20 @@ var checkLetters = function(characterPressed){
     };
 
   }
+ 
   placeLetter();
   //if correctly guessed letters contain no " _ "
+  console.log('about to check stuff');
   if((correctlyGuessedLetters.indexOf(" _ ") === -1) && (failNumber < maxFails)){
     //stop timer
     stopTimer();
     win();
-  }else if(failNumber >= maxFails){
+  };
+  if(failNumber >= maxFails){
     //stop timer
     stopTimer();
     die();
-  }
+  };
 
 };
 var stopTimer = function(){

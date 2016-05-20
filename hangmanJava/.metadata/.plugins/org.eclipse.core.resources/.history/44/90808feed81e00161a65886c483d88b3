@@ -8,7 +8,7 @@ var startPrompt = document.getElementById('startPrompt')
 var topScores = document.getElementById('topScores');
 var clock = document.getElementById('clock');
 var score = document.getElementById('score');
-score.innerHTML = "0";
+score.innerHTML = "..NO SCORE YET..";
 var intervalID = 0;
 var parts = document.getElementById('parts');
 //variables
@@ -281,7 +281,7 @@ var setupGame = function(){
   setCanvasAndContext();
   //score is time left when won
    //i messed up somewhere so its gettign set to one when ethe player restarts
-  resetHighScores();
+  
   runTimer();
   displayBlanks();
   //switch gameState to in game;
@@ -293,7 +293,7 @@ var setupGame = function(){
 
 }
 
-var resetHighScores = function(){
+var resetHighScores(){
 	topScores.innerHTML = "HIGH SCORES:"
 	getHighScores();
 }
@@ -330,20 +330,17 @@ var checkLetters = function(characterPressed){
     };
 
   }
- 
   placeLetter();
   //if correctly guessed letters contain no " _ "
-  console.log('about to check stuff');
   if((correctlyGuessedLetters.indexOf(" _ ") === -1) && (failNumber < maxFails)){
     //stop timer
     stopTimer();
     win();
-  };
-  if(failNumber >= maxFails){
+  }else if(failNumber >= maxFails){
     //stop timer
     stopTimer();
     die();
-  };
+  }
 
 };
 var stopTimer = function(){

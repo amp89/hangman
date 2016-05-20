@@ -14,15 +14,14 @@
 <div id="title">UGLY HANGMAN</div>
   <!-- <div id="parts"></div> -->
 
-  <div id="topScores"></div>
-  <div id="time">Seconds left: <span id="clock"></span>
-  </div>
-  <div>Guessed Letters: <span id="guessedLetterBox"></span></div>
-  <div>Word: <span id="wordbox"></span></div>
-  <div>Score: <span id="score"></span></div>
-  <div id="startPrompt">press s to start</div>
   <div id="message"></div>
+  <div id="topScores"></div>
+  <div id="clock"></div>
   <div id="initials"></div>
+  <div id="guessedLetterBox"></div>
+  <div id="wordbox"></div>
+  score: <div id="score"></div>
+  <div id="startPrompt">press s to start</div>
 </div>
 
 <script src="js/hangman.js"></script>
