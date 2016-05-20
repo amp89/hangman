@@ -16,29 +16,11 @@ public class LoadWords {
 		// TODO Auto-generated method stub
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hangman");
 		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
+		
 		BufferedReader buf = null;
 		try{
-			buf = new BufferedReader(new FileReader("words.txt"),100000);
+			buf = new BufferedReader(new FileReader("words.txt"),40000);
 			System.out.println(buf.readLine());
-			String line = "";
-			while((line = buf.readLine()) != null){
-				System.out.println(line);
-				String wString = line;
-				
-				int wLength = wString.length();
-				
-				Word w = new Word(wString,wLength);
-				
-				em.persist(w);
-			}
-			
-			
-			
-			
-			
-			
-			
 		}catch(IOException ioe){
 			System.out.println(ioe);
 			
@@ -53,9 +35,15 @@ public class LoadWords {
 		}
 		
 		
+		em.getTransaction().begin();
 		
+		String wString = "wtf";
 		
-
+		int wLength = wString.length();
+		
+		Word w = new Word(wString,wLength);
+		
+		em.persist(w);
 		
 		
 		
