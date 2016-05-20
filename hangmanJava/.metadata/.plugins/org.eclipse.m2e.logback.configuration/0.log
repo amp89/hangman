@@ -1,0 +1,101 @@
+2016-05-20 08:45:15,681 [Worker-14] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: HangmanJPA:HangmanJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/pom.xml.
+2016-05-20 08:45:16,711 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:45:16,724 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:45:16,736 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:45:16,737 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:45:16,834 [Worker-14] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /HangmanJPA/src
+2016-05-20 08:45:16,834 [Worker-14] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /HangmanJPA/src overlaps with sources folder /HangmanJPA/src
+2016-05-20 08:45:16,835 [Worker-14] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /HangmanJPA/src/test/java because it overlaps with /HangmanJPA/src
+2016-05-20 08:45:16,922 [Worker-14] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-05-20 08:45:17,359 [Worker-14] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: HangmanJPA:HangmanJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/pom.xml.
+2016-05-20 08:45:17,782 [Worker-14] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /HangmanJPA/src
+2016-05-20 08:45:17,782 [Worker-14] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /HangmanJPA/src overlaps with sources folder /HangmanJPA/src
+2016-05-20 08:45:17,791 [Worker-14] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /HangmanJPA/src/test/java because it overlaps with /HangmanJPA/src
+2016-05-20 08:45:17,891 [Worker-14] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2016-05-20 08:45:18,218 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:45:18,220 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:45:18,231 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:45:18,232 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:46:08,745 [Worker-13] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: HangmanJPA:HangmanJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/pom.xml.
+2016-05-20 08:46:09,266 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:46:09,271 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-20 08:46:09,274 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:46:09,276 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:46:10,916 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:46:10,920 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:46:10,932 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:46:10,933 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:46:51,594 [Worker-0] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-05-20 08:46:52,030 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: HangmanJPA:HangmanJPA:0.0.1-SNAPSHOT @ /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/pom.xml.
+2016-05-20 08:46:52,326 [Worker-0] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /HangmanJPA/src
+2016-05-20 08:46:52,326 [Worker-0] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /HangmanJPA/src overlaps with sources folder /HangmanJPA/src
+2016-05-20 08:46:52,326 [Worker-0] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /HangmanJPA/src/test/java because it overlaps with /HangmanJPA/src
+2016-05-20 08:46:52,475 [Worker-0] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2016-05-20 08:46:52,917 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:46:52,920 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:46:52,938 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:46:52,941 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:48:04,428 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:48:04,440 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:48:04,443 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:48:04,444 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:49:59,949 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:49:59,951 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:49:59,954 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:49:59,955 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:50:40,969 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:50:40,973 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:50:40,975 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:50:40,978 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:50:48,517 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:50:48,520 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:50:48,522 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:50:48,523 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:51:05,119 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:51:05,122 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:51:05,123 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:51:05,124 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:51:13,576 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:51:13,577 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:51:13,578 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:51:13,579 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:51:23,021 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:51:23,023 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:51:23,026 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:51:23,026 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:52:19,668 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:52:19,675 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:52:19,677 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:52:19,677 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:52:31,250 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:52:31,252 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:52:31,254 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:52:31,254 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:52:56,507 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:52:56,509 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:52:56,511 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:52:56,512 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:54:00,929 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:54:00,931 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:54:00,935 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:54:00,936 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:54:37,014 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:54:37,015 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:54:37,017 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:54:37,018 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:55:02,658 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:55:02,659 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:55:02,660 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:55:02,660 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:58:25,084 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:58:25,086 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:58:25,087 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:58:25,088 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:58:33,131 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:58:33,132 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:58:33,135 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:58:33,136 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources
+2016-05-20 08:58:51,938 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:58:51,941 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-05-20 08:58:51,944 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-20 08:58:51,944 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alex/Synced/SkillDistillery/javascript/testgame/hangmanJava/HangmanJPA/src/test/resources

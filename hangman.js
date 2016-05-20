@@ -7,12 +7,12 @@ var clock = document.getElementById('clock');
 var score = document.getElementById('score');
 score.innerHTML = "..NO SCORE YET..";
 var intervalID = 0;
-  var parts = document.getElementById('parts');
+var parts = document.getElementById('parts');
 //variables
-      var initials = document.getElementById('initials');
+var initials = document.getElementById('initials');
 var wordBox = document.getElementById('wordbox');
-  var message = document.getElementById("message");
-  var guessedLetterBox = document.getElementById("guessedLetterBox");
+var message = document.getElementById("message");
+var guessedLetterBox = document.getElementById("guessedLetterBox");
 var time = 60000; //1 min
 var gameState = 0;
 //0 - waiting to play, 1 - in game, 2 - win, 3 - lose 4 - prompt
@@ -43,6 +43,9 @@ var runTimer = function(){
 
       clock.innerHTML = time/1000;
       time -= 1000;
+      if(time <= 0){
+        gameState = 4;
+      };
     },1000
   )};
 
@@ -142,6 +145,7 @@ addEventListener('keyup',function(e){
 var setupGame = function(){
   parts.innerHTML = "NUMBER OF FAILS: 0";
   guessedLetters = [];
+  guessedLetterBox.innerHTML = "";
   initials.innerHTML = "";
   wordBox.innerHTML = "";
   message.innerHTML = "";

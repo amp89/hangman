@@ -1,0 +1,19 @@
+package entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Word {
+
+	@Id
+	private Integer id;
+	
+	@Column(name="name")
+	private String name;
+	
+	@Column(name="length")
+	private Integer length;
+	
+}
