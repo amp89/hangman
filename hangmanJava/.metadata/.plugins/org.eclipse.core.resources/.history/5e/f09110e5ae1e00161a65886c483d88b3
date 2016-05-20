@@ -1,0 +1,50 @@
+package data;
+
+import java.util.List;
+
+import entities.Score;
+import entities.Word;
+
+public class HangmanMySQLDAO implements HangmanDAO {
+
+	private final int wordListLength = 364293;
+	
+	@Override
+	public Word getWord(Integer difficulty) {
+		int min = 0, max = 0;
+		switch(difficulty){
+		case 1: min=3; max=5;break;
+		case 2: min=6; max=12;break;
+		case 3: min=13; max=19;break;
+		case 4: min=20; max=36;break;
+		case 5: min=37; max=99;break;
+		}
+		
+		
+		Word w = null;
+		do{
+			int randomId = (int)(1 + Math.random() * wordListLength);
+			
+			
+		}while(w.getLength())
+		
+		
+		
+		return w;
+	}
+	
+
+
+	@Override
+	public void addScore(Score score) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Score> getTopFiveScores() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

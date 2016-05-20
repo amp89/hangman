@@ -3,6 +3,7 @@ addEventListener('load',function(){
   setCanvasAndContext();
 });
 
+var topScores = document.getElementById('topScores');
 var clock = document.getElementById('clock');
 var score = document.getElementById('score');
 score.innerHTML = "..NO SCORE YET..";

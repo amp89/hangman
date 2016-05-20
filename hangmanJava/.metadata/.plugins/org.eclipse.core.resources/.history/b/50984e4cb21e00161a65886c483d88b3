@@ -1,0 +1,84 @@
+package data;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import entities.Score;
+import entities.Word;
+
+@Transactional
+public class HangmanMySQLDAO implements HangmanDAO {
+
+	private final int wordListLength = 364293;
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Override
+	public Word getWord(Integer difficulty) {
+		int min = 0, max = 0;
+		switch(difficulty){
+		case 1: min=3; max=5;break;
+		case 2: min=6; max=12;break;
+		case 3: min=13; max=19;break;
+		case 4: min=20; max=36;break;
+		case 5: min=37; max=99;break;
+		}
+		
+		
+		Word w = null;
+		do{
+			int randomId = (int)(Math.random() * wordListLength);
+			w = em.find(Word.class,randomId);
+			
+		}while(w.getLength() >= min && w.getLength() <= max);
+		
+		
+		
+		return w;
+	}
+	
+
+
+	@Override
+	public void addScore(Score score) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Score> getTopFiveScores() {
+		List<Score> allScores = em.createQuery("SELECT * FROM Score ").getResultList();
+		List<Score> topScores = new ArrayList<>();
+		Collections.sort(allScores, new Comparator() {
+			@Override
+			public int compare(Score e1, Score e2) {
+				
+				String id1 = e1.getScore();
+				String id2 = e2.getScore();
+
+				// ascending order
+				// return id1.compareTo(id2);
+
+				// descending order
+				return id2.compareTo(id1);
+			}
+
+
+		});
+		for(int i = 0; i < allScores.size(); i++){
+			
+		}
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+addEventListener('load',function(){
+	
+var xhr = new XMLHttpRequest();
+
+xhr.open('POST','../rest/getword/1');
+xhr.setRequestHeader('Content-type','application/json');
+xhr.onreadystatechange = function(){
+	if(xhr.readyState === 4 && xhr.status < 400){
+		//response test stuff
+		console.log(xhr.responseText);
+		console.log(JSON.parse(xhr.responseText));
+	}
+};
+
+xhr.send();
+
+var xhr1 = new XMLHttpRequest();
+
+xhr1.open('GET','../rest/topscores');
+xhr1.setRequestHeader('Content-type','application/json');
+xhr1.onreadystatechange = function(){
+	if(xhr1.readyState === 4 && xhr1.status < 400){
+		//response test stuff
+		console.log(xhr1.responseText);
+		console.log(JSON.parse(xhr1.responseText));
+	}
+};
+
+xhr1.send();
+
+
+
+
+
+var newScore = {
+		initials:"AMP",
+		score:9669696
+		};
+var newScoreJSON = JSON.stringify(newScore);
+
+var xhr2 = new XMLHttpRequest();
+
+xhr2.open('GET','../rest/submitscore/'+newScoreJSON);
+xhr2.setRequestHeader('Content-type','application/json');
+xhr2.onreadystatechange = function(){
+	if(xhr2.readyState === 4 && xhr2.status < 400){
+		//response test stuff
+		console.log('done')
+/* 		console.log(xhr2.responseText);
+		console.log(JSON.parse(xhr2.responseText)); */
+	}
+};
+
+xhr2.send();
+
+
+
+});
+
+</script>
+
+
+</body>
+</html>

@@ -62,6 +62,11 @@ public class Score {
 	public void setScore(Integer score) {
 		this.score = score;
 	}
+
+	@Override
+	public String toString() {
+		return "Score [id=" + id + ", initials=" + initials + ", score=" + score + "]";
+	}
 	
 	
 	

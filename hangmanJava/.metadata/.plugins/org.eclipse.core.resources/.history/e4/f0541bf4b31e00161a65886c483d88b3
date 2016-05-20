@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+addEventListener('load',function(){
+	
+var xhr = new XMLHttpRequest();
+
+xhr.open('POST','../rest/getword/1');
+xhr.setRequestHeader('Content-type','application/json');
+xhr.onreadystatechange = function(){
+	if(xhr.readyState === 4 && xhr.status < 400){
+		//response test stuff
+		console.log(xhr.responseText);
+		console.log(JSON.parse(xhr.responseText));
+	}
+}
+
+xhr.send();
+
+var xhr1 = new XMLHttpRequest();
+
+xhr1.open('GET','../rest/topscores');
+xhr1.setRequestHeader('Content-type','application/json');
+xhr1.onreadystatechange = function(){
+	if(xhr1.readyState === 4 && xhr1.status < 400){
+		//response test stuff
+	/* 	console.log(xhr1.responseText); */
+		console.log(JSON.parse(xhr1.responseText));
+	}
+}
+
+xhr1.send();
+
+
+
+})
+
+</script>
+
+
+</body>
+</html>
