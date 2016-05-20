@@ -46,6 +46,7 @@ var runTimer = function(){
       clock.innerHTML = time/1000;
       time -= 1000;
       if(time <= 0){
+    	  stopTimer();
         die();
       };
     },1000
@@ -109,7 +110,7 @@ var getHighScores = function(){
 			console.log(JSON.parse(xhr.responseText));
 			highScores = JSON.parse(xhr.responseText);
 			var ul = document.createElement('ul');
-			ul.innerHTML = "TOP SCORES";
+			ul.innerHTML = "TOP SCORES:";
 			
 			for(var i = 0; i < highScores.length; i++){
 				var li = document.createElement('li');
@@ -146,6 +147,7 @@ var submitScore = function(){
 		  initials:submitInitial,
 		  score:Number(submitScore)
   		};
+  document.getElementById('score').innerHTML = "0";
   console.log(newScore);
   var newScoreJSON = JSON.stringify(newScore);
   console.log(newScoreJSON);
@@ -322,7 +324,7 @@ var stopTimer = function(){
 var win = function(){
   message.innerHTML = "WOW YOU WIN";
   console.log("win function, omg you won ur so smart");
-  message.innerHTML = " enter your initialz ";
+  message.innerHTML = "Enter your initials, and press Enter.";
   setScore();
   console.log("SCORE:::: " + score);
 //  var scoreout = "score: " + score;
@@ -351,7 +353,22 @@ var placePart = function(){
 //play again
 var promptPlayAgain = function(){
   gameState = 4;
-  message.innerHTML += "Wanna play again? Enter for yes, Escape for no.";
+  //top scores
+//  topScores.style.display = "none";
+//  //clock
+//  clock.style.display = 'none';
+//  
+//  //initials
+//  initials.style.display = 'none';
+//  //guessedLetterBox
+//  guessedLetterBox.style.display = 'none';
+//  //wordbox
+//  wordBox.style.display = 'none';
+//  
+//  //score
+//  score.style.display = 'none';
+  //startPrompt
+  message.innerHTML = "Wanna play again? Enter for yes, Escape for no.";
 
 };
 

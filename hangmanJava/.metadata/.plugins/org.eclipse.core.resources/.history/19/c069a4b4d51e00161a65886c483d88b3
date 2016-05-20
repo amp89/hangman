@@ -1,0 +1,22 @@
+
+#canvas{
+  border: 2px solid red;
+  box-shadow: 4px 4px 10px 0px black;
+}
+
+
+#left{
+	float:left;
+	width:450px;
+	height:auto;
+	display:inline-block;
+	text-align:center;
+}
+
+#left{
+	float:left;
+	width:500px;
+	height:auto;
+	display:inline-block;
+	text-align:left;
+}

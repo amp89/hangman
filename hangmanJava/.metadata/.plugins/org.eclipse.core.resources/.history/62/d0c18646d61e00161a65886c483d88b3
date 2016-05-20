@@ -1,0 +1,33 @@
+
+#canvas{
+  border: 2px solid red;
+  box-shadow: 4px 4px 10px 0px black;
+}
+
+
+#left{
+	padding:15px;
+	float:left;
+	width:450px;
+	height:auto;
+	display:inline-block;
+	text-align:center;
+}
+
+#right{
+	padding:15px;
+	float:right;
+	width:500px;
+	height:auto;
+	display:inline-block;
+	text-align:left;
+}
+
+#title{
+	font-size:2em;
+	text-align:center;
+	margin:auto;
+	width:100%;
+	display:block;
+	font-weight:bold;
+}

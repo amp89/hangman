@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+</head>
+
+<body>
+<div id="left">
+  <canvas id="canvas" width="400" height="400"></canvas>
+</div>
+<div id="right">
+  <div id="parts"></div>
+
+  <div id="message"></div>
+  <div id="topScores"></div>
+  <div id="clock"></div>
+  <div id="initials"></div>
+  <div id="guessedLetterBox"></div>
+  <div id="wordbox"></div>
+  score: <div id="score"></div>
+  <div id="startPrompt">press s to start</div>
+</div>
+
+<script src="js/hangman.js"></script>
+<!-- this one needs to go away -->
+<!-- <script src="testDrawingStuff.js"></script> -->
+
+</body>
+
+</html>

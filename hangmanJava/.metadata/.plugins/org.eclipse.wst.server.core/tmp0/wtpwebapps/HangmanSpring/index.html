@@ -3,11 +3,16 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
 </head>
 
 <body>
+<div id="left">
   <canvas id="canvas" width="400" height="400"></canvas>
-  <div id="parts"></div>
+</div>
+<div id="right">
+<div id="title">UGLY HANGMAN</div>
+  <!-- <div id="parts"></div> -->
 
   <div id="message"></div>
   <div id="topScores"></div>
@@ -17,6 +22,7 @@
   <div id="wordbox"></div>
   score: <div id="score"></div>
   <div id="startPrompt">press s to start</div>
+</div>
 
 <script src="js/hangman.js"></script>
 <!-- this one needs to go away -->

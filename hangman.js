@@ -6,7 +6,7 @@ addEventListener('load',function(){
 var topScores = document.getElementById('topScores');
 var clock = document.getElementById('clock');
 var score = document.getElementById('score');
-score.innerHTML = "..NO SCORE YET..";
+score.innerHTML = "0";
 var intervalID = 0;
 var parts = document.getElementById('parts');
 //variables
