@@ -24,34 +24,48 @@ public class HangmanMySQLDAO implements HangmanDAO {
 	@Override
 	public Word getWord(Integer difficulty) {
 		int min = 0, max = 0;
-		switch(difficulty){
-		case 1: min=3; max=4;break;
-		case 2: min=5; max=7;break;
-		case 3: min=8; max=12;break;
-		case 4: min=12; max=20;break;
-		case 5: min=20; max=99;break;
+		switch (difficulty) {
+		case 1:
+			min = 3;
+			max = 4;
+			break;
+		case 2:
+			min = 5;
+			max = 7;
+			break;
+		case 3:
+			min = 8;
+			max = 12;
+			break;
+		case 4:
+			min = 12;
+			max = 20;
+			break;
+		case 5:
+			min = 20;
+			max = 99;
+			break;
 		}
-		
+
 		System.out.println(min);
 		System.out.println(max);
 		Word w = null;
-		while(true){
-			int randomId = (int)(Math.random() * wordListLength);
-			w = em.find(Word.class,randomId);
-			//TODO filter out non letter chars.  db?
-			if(w != null){
-				
-			
-			if(w.getName().length() >= min && w.getName().length() <= max){
-				break;
-			}else{
-				continue;
+		while (true) {
+			int randomId = (int) (Math.random() * wordListLength);
+			w = em.find(Word.class, randomId);
+			if (w != null) {
+
+				if (w.getName().length() >= min && w.getName().length() <= max) {
+					break;
+				} else {
+					continue;
+				}
 			}
-			}
-		};
-		
+		}
+		;
+
 		System.out.println("WORD RETURED: " + w.getName());
-		
+
 		return w;
 	}
 
@@ -74,10 +88,6 @@ public class HangmanMySQLDAO implements HangmanDAO {
 				Integer score1 = ((Score) s1).getScore();
 				Integer score2 = ((Score) s2).getScore();
 
-				// ascending order
-				// return id1.compareTo(id2);
-
-				// descending order
 				return score2.compareTo(score1);
 			}
 

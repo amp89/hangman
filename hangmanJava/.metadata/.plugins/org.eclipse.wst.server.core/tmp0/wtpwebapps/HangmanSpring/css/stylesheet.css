@@ -1,7 +1,13 @@
 
 @font-face{
 	font-family: 'myFont';
-	src: url('scfont.otf') format('otf');
+	src: url(scfont.otf) format(otf);
+}
+
+body{
+	color:green;
+text-shadow: 1px 1px 1px grey;
+font-size:1.3em;
 }
 
 #canvas{
@@ -22,14 +28,16 @@
 #right{
 	padding:15px;
 	float:right;
-	width:500px;
+	width:400px;
 	height:auto;
 	display:inline-block;
 	text-align:left;
 }
 
 #title{
-	font-size:3em;
+		color:red;
+			text-shadow: 1px 1px 45px black;
+	font-size:2em;
 	text-align:center;
 	margin:auto;
 	width:100%;
@@ -53,4 +61,13 @@
 	width:100%;
 	display:block;
 	
+}
+
+@media (max-width: 929px){
+	#right{width:90%;
+	height:auto;
+	display:block;}
+	#left{width:90%;
+	height:auto;
+	display:block;}
 }
