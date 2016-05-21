@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="HangmanDBTest" project="HangmanJPA" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="testing.HangmanDBTest" time="2.004">
-    <testcase name="scoreScore" classname="testing.HangmanDBTest" time="2.004"/>
-  </testsuite>
-</testrun>

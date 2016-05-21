@@ -25,11 +25,11 @@ public class HangmanMySQLDAO implements HangmanDAO {
 	public Word getWord(Integer difficulty) {
 		int min = 0, max = 0;
 		switch(difficulty){
-		case 1: min=3; max=5;break;
-		case 2: min=6; max=12;break;
-		case 3: min=13; max=19;break;
-		case 4: min=20; max=36;break;
-		case 5: min=37; max=99;break;
+		case 1: min=3; max=4;break;
+		case 2: min=5; max=7;break;
+		case 3: min=8; max=12;break;
+		case 4: min=12; max=20;break;
+		case 5: min=20; max=99;break;
 		}
 		
 		System.out.println(min);

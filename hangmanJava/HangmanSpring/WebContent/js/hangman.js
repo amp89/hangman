@@ -4,7 +4,10 @@ addEventListener('load',function(){
   getHighScores();
 });
 
-var startPrompt = document.getElementById('startPrompt')
+
+var difficulty = 1;
+var resetButton = document.getElementById('reset');
+var startPrompt = document.getElementById('startPrompt');
 var topScores = document.getElementById('topScores');
 var clock = document.getElementById('clock');
 var score = document.getElementById('score');
@@ -38,6 +41,9 @@ var highScores = [];
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+resetButton.addEventListener('click',function(){
+	location.reload();
+});
 
 var runTimer = function(){
   //if timer > 60s, die
@@ -54,13 +60,13 @@ var runTimer = function(){
   )};
 
 //get a word from the database
-var getWord = function(){
+var getWord = function(d){
   //make restful call to database
-  
+  difficulty = d;
 	
   var xhr = new XMLHttpRequest();
 
-  xhr.open('POST','../HangmanSpring/rest/getword/1');
+  xhr.open('POST','../HangmanSpring/rest/getword/' + difficulty);
   xhr.setRequestHeader('Content-type','application/json');
   xhr.onreadystatechange = function(){
   	if(xhr.readyState === 4 && xhr.status < 400){
@@ -81,7 +87,7 @@ var getWord = function(){
   	  //TODO test console printout
   	  for(var i = 0; i < secretWordLetters.length; i++){
   	    console.log(secretWordLetters[i]);
-  	  }
+  	  };
   	  //print BLANKS (all that is in correctlyGuessedLetters is blanks rn)
   	  placeLetter();
   		
@@ -189,7 +195,7 @@ addEventListener('keyup',function(e){
 
     if(gameState === 4 && e.keyCode === 13){
       gameState = 0;
-      setupGame();
+      setupGame(difficulty);
     }
 
     if(gameState === 4 && e.keyCode === 27){
@@ -249,11 +255,32 @@ addEventListener('keyup',function(e){
 
     }
 
-  if(gameState === 0 && characterPressed === 'S'){
+  if(gameState === 0 && characterPressed === 'Q'){
     console.log("GAMESTATE:" + gameState);
     console.log("START PRESSED");
-    setupGame();
+    setupGame(1);
   }
+  if(gameState === 0 && characterPressed === 'W'){
+	    console.log("GAMESTATE:" + gameState);
+	    console.log("START PRESSED");
+	    setupGame(2);
+	  }
+  if(gameState === 0 && characterPressed === 'E'){
+	    console.log("GAMESTATE:" + gameState);
+	    console.log("START PRESSED");
+	    setupGame(3);
+	  }
+  if(gameState === 0 && characterPressed === 'R'){
+	    console.log("GAMESTATE:" + gameState);
+	    console.log("START PRESSED");
+	    setupGame(4);
+	  }
+  if(gameState === 0 && characterPressed === 'T'){
+	    console.log("GAMESTATE:" + gameState);
+	    console.log("START PRESSED");
+	    setupGame(5);
+	  }
+
 
 
 
@@ -261,7 +288,7 @@ addEventListener('keyup',function(e){
 
 });
 
-var setupGame = function(){
+var setupGame = function(d){
 //  parts.innerHTML = "NUMBER OF FAILS: 0";
   guessedLetters = [];
   guessedLetterBox.innerHTML = "";
@@ -283,7 +310,7 @@ var setupGame = function(){
    //i messed up somewhere so its gettign set to one when ethe player restarts
   resetHighScores();
   runTimer();
-  displayBlanks();
+  displayBlanks(d);
   //switch gameState to in game;
   startPrompt.innerHTML = "";
   gameState = 1;
@@ -294,13 +321,14 @@ var setupGame = function(){
 }
 
 var resetHighScores = function(){
-	topScores.innerHTML = "HIGH SCORES:"
+	topScores.innerHTML = ""
 	getHighScores();
 }
 
 //display blank spaces based on number of letters in the word
-var displayBlanks = function(){
-	getWord();
+var displayBlanks = function(d){
+	//TODO refactor
+	getWord(d);
 
 };
 
@@ -317,19 +345,19 @@ var checkLetters = function(characterPressed){
       //place letter fuction
       correctlyGuessedLetters[i] = characterPressed;
       correctWordCountForTurn++;
-    }
+    };
   };
   if(correctWordCountForTurn < 1){
     failNumber++; //TODO on restart, its incrementing here
     drawOnCanvas(failNumber);
     console.log("FAIL NUMBER IS NOW: " + failNumber);
-    placePart();
+//    placePart();
     //test
     for(var i = 0; i < correctlyGuessedLetters.length; i++){
       console.log(correctlyGuessedLetters[i]);
     };
 
-  }
+  };
  
   placeLetter();
   //if correctly guessed letters contain no " _ "
@@ -349,11 +377,11 @@ var checkLetters = function(characterPressed){
 var stopTimer = function(){
     clearInterval(intervalID);
 
-}
+};
 
 //win
 var win = function(){
-  message.innerHTML = "WOW YOU WIN";
+  message.innerHTML = "WOW YOU WIN!!!";
   console.log("win function, omg you won ur so smart");
   message.innerHTML = "Enter your initials, and press Enter.";
   setScore();
@@ -365,7 +393,7 @@ var win = function(){
 };
 //lose
 var die = function(){
-  message.innerHTML = "WOW YOU SUCK press enter to continue";
+  message.innerHTML = "YOU HAVE FAILED.  THE WORD WAS '" + secretWord.toUpperCase() +"'.<br>Press ENTER to continue.";
   gameState = 3;
 };
 //replace a blank with a letter
@@ -377,35 +405,28 @@ var placeLetter = function(index,char){
   }
 };
 //place a part on the hangman guy
+
+
+//TODO: delete this?
 var placePart = function(){
 
   parts.innerHTML = "NUMBER OF FAILS: " + failNumber;
 };
+
+
 //play again
 var promptPlayAgain = function(){
   gameState = 4;
-  //top scores
-//  topScores.style.display = "none";
-//  //clock
-//  clock.style.display = 'none';
-//  
-//  //initials
-//  initials.style.display = 'none';
-//  //guessedLetterBox
-//  guessedLetterBox.style.display = 'none';
-//  //wordbox
-//  wordBox.style.display = 'none';
-//  
-//  //score
-//  score.style.display = 'none';
-  //startPrompt
-  message.innerHTML = "Wanna play again? Enter for yes, Escape for no.";
+
+  message.innerHTML = "Want to play again? ENTER for yes, ESC for no.";
 
 };
 
 
 
-//canvas stuff
+/*
+ * Canvas methods
+ */
 
 var setCanvasAndContext = function(){
   ctx.clearRect(0,0,400,400);
@@ -654,4 +675,6 @@ var drawOnCanvas = function(failNumber){
   }
 }
 
-
+/*
+ * End canvas methods
+ */
