@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="HIGH S" key="selection"/>
+		<item value="hi" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="high s"/>
-			<item value="placePart"/>
-			<item value="place"/>
-			<item value="stuff"/>
-			<item value="checking"/>
-			<item value="checking stuff"/>
-			<item value="placeLetter"/>
-			<item value="placeLetter();"/>
+			<item value="Hangm"/>
+			<item value="hi"/>
+			<item value="ass"/>
+			<item value="bitch"/>
+			<item value="fuck"/>
+			<item value="shit"/>
+			<item value="console.log"/>
+			<item value="delace"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -24,7 +24,7 @@
 		<item value="265" key="DIALOG_WIDTH"/>
 		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
 		<item value="399" key="DIALOG_HEIGHT"/>
-		<item value="120" key="DIALOG_X_ORIGIN"/>
-		<item value="25" key="DIALOG_Y_ORIGIN"/>
+		<item value="990" key="DIALOG_X_ORIGIN"/>
+		<item value="205" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

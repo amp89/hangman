@@ -155,7 +155,7 @@ addEventListener(
         }
 
         if (gameState === 4 && e.keyCode === 27) {
-            message.innerHTML = "FINE";
+            message.innerHTML = "GOODBYE :( ";
             exitProgram();
         }
 

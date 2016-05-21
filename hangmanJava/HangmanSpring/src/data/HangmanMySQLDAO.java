@@ -77,7 +77,7 @@ public class HangmanMySQLDAO implements HangmanDAO {
 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<Score> getTopFiveScores() {
 		List<Score> allScores = em.createQuery("SELECT s FROM Score s", Score.class).getResultList();
