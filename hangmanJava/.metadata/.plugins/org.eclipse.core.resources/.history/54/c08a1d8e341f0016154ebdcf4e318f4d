@@ -1,7 +1,7 @@
 addEventListener('load', function() {
     console.log("hangman.js has been loaded.");
     setCanvasAndContext();
-//    getHighScores();
+    getHighScores();
 });
 
 var difficulty = 1;
@@ -201,7 +201,7 @@ addEventListener(
 
                 checkLetters(characterPressed);
             } else {
-                message.innerHTML = "That letter was already guessed, try again.";
+                message.innerHTML = "That letter was already guessed, try again stupid.";
             }
 
         }

@@ -201,7 +201,7 @@ addEventListener(
 
                 checkLetters(characterPressed);
             } else {
-                message.innerHTML = "That letter was already guessed, try again.";
+                message.innerHTML = "That letter was already guessed, try again stupid.";
             }
 
         }

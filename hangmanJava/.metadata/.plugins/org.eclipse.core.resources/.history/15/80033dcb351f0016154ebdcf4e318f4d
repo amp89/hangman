@@ -63,10 +63,6 @@ font-size:1.3em;
 	
 }
 
-#message{
-	color:red;
-}
-
 @media (max-width: 929px){
 	#right{width:90%;
 	height:auto;
